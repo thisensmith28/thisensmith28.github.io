@@ -118,6 +118,19 @@
   }
   .eyebrow::before{content:"//"; color:var(--text-dim);}
 
+  .avatar-wrap{
+    width:72px; height:72px; border-radius:16px;
+    padding:2px;
+    background:linear-gradient(135deg, var(--cyan), var(--violet));
+    margin-bottom:24px;
+    box-shadow:0 12px 28px -10px rgba(77,216,230,0.35);
+  }
+  .avatar-wrap img{
+    width:100%; height:100%; border-radius:14px;
+    object-fit:cover; display:block;
+    background:var(--panel);
+  }
+
   h1.title{
     font-family:var(--font-display);
     font-weight:700;
@@ -372,6 +385,7 @@
       <div class="lang-toggle" role="group" aria-label="Language switch">
         <button class="lang-btn" data-lang="it">IT</button>
         <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="sv">SV</button>
       </div>
     </div>
   </nav>
@@ -380,6 +394,7 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
+      <div class="avatar-wrap"><img src="https://res.cloudinary.com/dab8p8lgh/image/upload/v1785013507/Untitled_19_x_27_cm_15_x_25_cm_ul3kmj.png" alt="Thisen Smith"></div>
       <div class="eyebrow" data-i18n="hero_eyebrow">status: disponibile per nuovi progetti</div>
       <h1 class="title" data-i18n-html="hero_title">Storefront che <span class="grad">convertono</span>.<br>Campagne che <span class="grad">scalano</span>.</h1>
       <p class="lead" data-i18n="hero_lead">Sono Thisen Smith, e-commerce & digital marketing specialist. Costruisco e ottimizzo store Shopify, WooCommerce e TikTok Shop, e guido campagne ads e email marketing dal lancio alla crescita.</p>
@@ -736,117 +751,123 @@
 
   // ---------- i18n ----------
   const translations = {
-    hero_eyebrow: { it: "status: disponibile per nuovi progetti", en: "status: open to new projects" },
+    hero_eyebrow: { it: "status: disponibile per nuovi progetti", en: "status: open to new projects", sv: "status: tillgänglig för nya projekt" },
     hero_title: {
       it: 'Storefront che <span class="grad">convertono</span>.<br>Campagne che <span class="grad">scalano</span>.',
-      en: 'Storefronts that <span class="grad">convert</span>.<br>Campaigns that <span class="grad">scale</span>.'
+      en: 'Storefronts that <span class="grad">convert</span>.<br>Campaigns that <span class="grad">scale</span>.',
+      sv: 'Butiker som <span class="grad">konverterar</span>.<br>Kampanjer som <span class="grad">skalar</span>.'
     },
     hero_lead: {
       it: "Sono Thisen Smith, e-commerce & digital marketing specialist. Costruisco e ottimizzo store Shopify, WooCommerce e TikTok Shop, e guido campagne ads e email marketing dal lancio alla crescita.",
-      en: "I'm Thisen Smith, an e-commerce & digital marketing specialist. I build and optimize Shopify, WooCommerce and TikTok Shop stores, and run ad campaigns and email marketing from launch to growth."
+      en: "I'm Thisen Smith, an e-commerce & digital marketing specialist. I build and optimize Shopify, WooCommerce and TikTok Shop stores, and run ad campaigns and email marketing from launch to growth.",
+      sv: "Jag heter Thisen Smith och är e-handels- och digital marketing-specialist. Jag bygger och optimerar butiker på Shopify, WooCommerce och TikTok Shop, och driver annonskampanjer och e-postmarknadsföring från lansering till tillväxt."
     },
-    btn_projects: { it: "Vedi i progetti →", en: "View projects →" },
-    btn_contact: { it: "Contattami", en: "Get in touch" },
+    btn_projects: { it: "Vedi i progetti →", en: "View projects →", sv: "Se projekten →" },
+    btn_contact: { it: "Contattami", en: "Get in touch", sv: "Kontakta mig" },
 
-    about_title: { it: "Dal catalogo al checkout.", en: "From catalog to checkout." },
+    about_title: { it: "Dal catalogo al checkout.", en: "From catalog to checkout.", sv: "Från katalog till kassa." },
     about_p1: {
       it: "Mi occupo di e-commerce e digital marketing su più canali: gestione operativa e strategica di store TikTok Shop, Shopify, WooCommerce e WordPress, con un focus costante su conversioni, ROAS e crescita delle vendite.",
-      en: "I work across e-commerce and digital marketing on multiple channels: hands-on and strategic management of TikTok Shop, Shopify, WooCommerce and WordPress stores, with a constant focus on conversions, ROAS and sales growth."
+      en: "I work across e-commerce and digital marketing on multiple channels: hands-on and strategic management of TikTok Shop, Shopify, WooCommerce and WordPress stores, with a constant focus on conversions, ROAS and sales growth.",
+      sv: "Jag arbetar med e-handel och digital marknadsföring över flera kanaler: operativ och strategisk hantering av butiker på TikTok Shop, Shopify, WooCommerce och WordPress, med ständigt fokus på konverteringar, ROAS och försäljningstillväxt."
     },
     about_p2: {
       it: "Lavoro sull'intera filiera: catalogo prodotti, pricing, conformità, customer care, campagne advertising, collaborazioni con creator e affiliati, email marketing e ottimizzazione tecnica dei siti — così ogni store che tocco cresce sia in traffico che in conversione.",
-      en: "I work across the entire pipeline: product catalog, pricing, compliance, customer care, ad campaigns, creator and affiliate partnerships, email marketing and technical site optimization — so every store I touch grows in both traffic and conversion."
+      en: "I work across the entire pipeline: product catalog, pricing, compliance, customer care, ad campaigns, creator and affiliate partnerships, email marketing and technical site optimization — so every store I touch grows in both traffic and conversion.",
+      sv: "Jag arbetar genom hela kedjan: produktkatalog, prissättning, regelefterlevnad, kundservice, annonskampanjer, samarbeten med kreatörer och affiliates, e-postmarknadsföring och teknisk siteoptimering — så att varje butik jag rör vid växer både i trafik och konvertering."
     },
-    stat1_label: { it: "store / progetti<br>e-commerce seguiti", en: "stores / e-commerce<br>projects managed" },
-    stat2_label: { it: "piattaforme<br>Shopify · WooCommerce · WordPress · TikTok Shop", en: "platforms<br>Shopify · WooCommerce · WordPress · TikTok Shop" },
-    stat3_label: { it: "lingue<br>Inglese · Svedese · Italiano", en: "languages<br>English · Swedish · Italian" },
-    stat4_label: { it: "canali ads gestiti<br>Google · Meta · TikTok", en: "ad channels managed<br>Google · Meta · TikTok" },
+    stat1_label: { it: "store / progetti<br>e-commerce seguiti", en: "stores / e-commerce<br>projects managed", sv: "butiker / e-handels-<br>projekt hanterade" },
+    stat2_label: { it: "piattaforme<br>Shopify · WooCommerce · WordPress · TikTok Shop", en: "platforms<br>Shopify · WooCommerce · WordPress · TikTok Shop", sv: "plattformar<br>Shopify · WooCommerce · WordPress · TikTok Shop" },
+    stat3_label: { it: "lingue<br>Inglese · Svedese · Italiano", en: "languages<br>English · Swedish · Italian", sv: "språk<br>Engelska · Svenska · Italienska" },
+    stat4_label: { it: "canali ads gestiti<br>Google · Meta · TikTok", en: "ad channels managed<br>Google · Meta · TikTok", sv: "annonskanaler hanterade<br>Google · Meta · TikTok" },
 
-    stack_title: { it: "Strumenti che uso ogni giorno.", en: "Tools I use every day." },
-    card1_tag: { it: "PIATTAFORME E-COMMERCE", en: "E-COMMERCE PLATFORMS" },
-    card1_title: { it: "Store & Marketplace", en: "Stores & Marketplaces" },
-    card2_tag: { it: "CMS", en: "CMS" },
-    card2_title: { it: "Siti & Contenuti", en: "Sites & Content" },
-    card3_tag: { it: "ADVERTISING", en: "ADVERTISING" },
-    card3_title: { it: "Campagne & Ads", en: "Campaigns & Ads" },
-    card4_tag: { it: "ANALYTICS", en: "ANALYTICS" },
-    card4_title: { it: "Dati & Performance", en: "Data & Performance" },
-    card5_tag: { it: "EMAIL MARKETING", en: "EMAIL MARKETING" },
-    card5_title: { it: "CRM & Automazioni", en: "CRM & Automations" },
-    card6_tag: { it: "DESIGN & PAGAMENTI", en: "DESIGN & PAYMENTS" },
-    card6_title: { it: "Creatività & Checkout", en: "Creative & Checkout" },
+    stack_title: { it: "Strumenti che uso ogni giorno.", en: "Tools I use every day.", sv: "Verktyg jag använder varje dag." },
+    card1_tag: { it: "PIATTAFORME E-COMMERCE", en: "E-COMMERCE PLATFORMS", sv: "E-HANDELSPLATTFORMAR" },
+    card1_title: { it: "Store & Marketplace", en: "Stores & Marketplaces", sv: "Butiker & Marknadsplatser" },
+    card2_tag: { it: "CMS", en: "CMS", sv: "CMS" },
+    card2_title: { it: "Siti & Contenuti", en: "Sites & Content", sv: "Webbplatser & Innehåll" },
+    card3_tag: { it: "ADVERTISING", en: "ADVERTISING", sv: "ANNONSERING" },
+    card3_title: { it: "Campagne & Ads", en: "Campaigns & Ads", sv: "Kampanjer & Annonser" },
+    card4_tag: { it: "ANALYTICS", en: "ANALYTICS", sv: "ANALYS" },
+    card4_title: { it: "Dati & Performance", en: "Data & Performance", sv: "Data & Prestanda" },
+    card5_tag: { it: "EMAIL MARKETING", en: "EMAIL MARKETING", sv: "E-POSTMARKNADSFÖRING" },
+    card5_title: { it: "CRM & Automazioni", en: "CRM & Automations", sv: "CRM & Automatiseringar" },
+    card6_tag: { it: "DESIGN & PAGAMENTI", en: "DESIGN & PAYMENTS", sv: "DESIGN & BETALNINGAR" },
+    card6_title: { it: "Creatività & Checkout", en: "Creative & Checkout", sv: "Kreativt & Kassa" },
 
-    work_title: { it: "Store e siti su cui ho lavorato e su cui sto lavorando...", en: "Stores and sites I've worked on and working on..." },
-    link_visit: { it: "visita lo store", en: "visit the store" },
+    work_title: { it: "Store e siti su cui ho lavorato e su cui sto lavorando...", en: "Stores and sites I've worked on and working on...", sv: "Butiker och webbplatser jag har arbetat och arbetar med..." },
+    link_visit: { it: "visita lo store", en: "visit the store", sv: "besök butiken" },
 
-    p1_period: { it: "05/2026 – in corso", en: "05/2026 – present" },
-    p1_role: { it: "Ecommerce & Marketing Specialist · Napoli", en: "Ecommerce & Marketing Specialist · Naples" },
-    p1_b1: { it: "Gestione e crescita dello store Shopify del brand", en: "Managing and growing the brand's Shopify store" },
-    p1_b2: { it: "Campagne Google Ads per traffico qualificato", en: "Google Ads campaigns for qualified traffic" },
-    p1_b3: { it: "Email marketing: newsletter, automazioni, recupero carrelli", en: "Email marketing: newsletters, automations, cart recovery" },
-    p1_b4: { it: "Gestione vendite su TikTok Shop", en: "TikTok Shop sales management" },
+    p1_period: { it: "05/2026 – in corso", en: "05/2026 – present", sv: "05/2026 – pågående" },
+    p1_role: { it: "Ecommerce & Marketing Specialist · Napoli", en: "Ecommerce & Marketing Specialist · Naples", sv: "Ecommerce & Marketing Specialist · Neapel" },
+    p1_b1: { it: "Gestione e crescita dello store Shopify del brand", en: "Managing and growing the brand's Shopify store", sv: "Hantering och tillväxt av varumärkets Shopify-butik" },
+    p1_b2: { it: "Campagne Google Ads per traffico qualificato", en: "Google Ads campaigns for qualified traffic", sv: "Google Ads-kampanjer för kvalificerad trafik" },
+    p1_b3: { it: "Email marketing: newsletter, automazioni, recupero carrelli", en: "Email marketing: newsletters, automations, cart recovery", sv: "E-postmarknadsföring: nyhetsbrev, automatiseringar, återvunna varukorgar" },
+    p1_b4: { it: "Gestione vendite su TikTok Shop", en: "TikTok Shop sales management", sv: "Försäljningshantering på TikTok Shop" },
 
-    p3_period: { it: "01/2025 – 07/2026", en: "01/2025 – 07/2026" },
-    p3_role: { it: "Ecommerce Manager · Napoli", en: "Ecommerce Manager · Naples" },
-    p3_b1: { it: "E-commerce Shopify + TikTok Shop integrati", en: "Shopify + TikTok Shop integrated e-commerce" },
-    p3_b2: { it: "Amazon Seller Central: prodotti e ordini", en: "Amazon Seller Central: products and orders" },
-    p3_b3: { it: "Google Ads, TikTok, Instagram · Klarna / Scalapay", en: "Google Ads, TikTok, Instagram · Klarna / Scalapay" },
+    p3_period: { it: "01/2025 – 07/2026", en: "01/2025 – 07/2026", sv: "01/2025 – 07/2026" },
+    p3_role: { it: "Ecommerce Manager · Napoli", en: "Ecommerce Manager · Naples", sv: "Ecommerce Manager · Neapel" },
+    p3_b1: { it: "E-commerce Shopify + TikTok Shop integrati", en: "Shopify + TikTok Shop integrated e-commerce", sv: "Shopify + TikTok Shop integrerad e-handel" },
+    p3_b2: { it: "Amazon Seller Central: prodotti e ordini", en: "Amazon Seller Central: products and orders", sv: "Amazon Seller Central: produkter och beställningar" },
+    p3_b3: { it: "Google Ads, TikTok, Instagram · Klarna / Scalapay", en: "Google Ads, TikTok, Instagram · Klarna / Scalapay", sv: "Google Ads, TikTok, Instagram · Klarna / Scalapay" },
 
-    p4_period: { it: "07/2025 – in corso", en: "07/2025 – present" },
-    p4_role: { it: "Ecommerce & Marketing Specialist · Napoli", en: "Ecommerce & Marketing Specialist · Naples" },
-    p4_b1: { it: "Store WooCommerce / WordPress — calzature alta gamma", en: "WooCommerce / WordPress store — high-end footwear" },
-    p4_b2: { it: "Posizionamento brand e marketing digitale", en: "Brand positioning and digital marketing" },
-    p4_b3: { it: "Ottimizzazione UX e conversioni", en: "UX and conversion optimization" },
-    p4_b4: { it: "Gestione vendite su TikTok Shop", en: "TikTok Shop sales management" },
+    p4_period: { it: "07/2025 – in corso", en: "07/2025 – present", sv: "07/2025 – pågående" },
+    p4_role: { it: "Ecommerce & Marketing Specialist · Napoli", en: "Ecommerce & Marketing Specialist · Naples", sv: "Ecommerce & Marketing Specialist · Neapel" },
+    p4_b1: { it: "Store WooCommerce / WordPress — calzature alta gamma", en: "WooCommerce / WordPress store — high-end footwear", sv: "WooCommerce / WordPress-butik — skor i högre prissegment" },
+    p4_b2: { it: "Posizionamento brand e marketing digitale", en: "Brand positioning and digital marketing", sv: "Varumärkespositionering och digital marknadsföring" },
+    p4_b3: { it: "Ottimizzazione UX e conversioni", en: "UX and conversion optimization", sv: "UX- och konverteringsoptimering" },
+    p4_b4: { it: "Gestione vendite su TikTok Shop", en: "TikTok Shop sales management", sv: "Försäljningshantering på TikTok Shop" },
 
-    p5_period: { it: "04/2025 – 10/2025", en: "04/2025 – 10/2025" },
-    p5_role: { it: "Social Media Marketing & Ecommerce Manager · USA (remoto)", en: "Social Media Marketing & Ecommerce Manager · USA (remote)" },
-    p5_b1: { it: "Follower +30% in due mesi, engagement +35%", en: "Followers +30% in two months, engagement +35%" },
-    p5_b2: { it: "CAC -10%, conversioni +25%", en: "CAC -10%, conversions +25%" },
-    p5_b3: { it: "Collaborazioni con influencer e ambassador", en: "Collaborations with influencers and ambassadors" },
+    p5_period: { it: "04/2025 – 10/2025", en: "04/2025 – 10/2025", sv: "04/2025 – 10/2025" },
+    p5_role: { it: "Social Media Marketing & Ecommerce Manager · USA (remoto)", en: "Social Media Marketing & Ecommerce Manager · USA (remote)", sv: "Social Media Marketing & Ecommerce Manager · USA (distans)" },
+    p5_b1: { it: "Follower +30% in due mesi, engagement +35%", en: "Followers +30% in two months, engagement +35%", sv: "Följare +30% på två månader, engagemang +35%" },
+    p5_b2: { it: "CAC -10%, conversioni +25%", en: "CAC -10%, conversions +25%", sv: "CAC -10%, konverteringar +25%" },
+    p5_b3: { it: "Collaborazioni con influencer e ambassador", en: "Collaborations with influencers and ambassadors", sv: "Samarbeten med influencers och ambassadörer" },
 
-    p6_period: { it: "04/2025", en: "04/2025" },
-    p6_role: { it: "Creazione sito web", en: "Website creation" },
-    p6_b1: { it: "Sito creato interamente da zero", en: "Site built entirely from scratch" },
+    p6_period: { it: "04/2025", en: "04/2025", sv: "04/2025" },
+    p6_role: { it: "Creazione sito web", en: "Website creation", sv: "Webbplatsutveckling" },
+    p6_b1: { it: "Sito creato interamente da zero", en: "Site built entirely from scratch", sv: "Webbplats byggd helt från grunden" },
 
-    p7_period: { it: "2026", en: "2026" },
-    p7_role: { it: "WordPress · Creazione & Ottimizzazione", en: "WordPress · Creation & Optimization" },
-    p7_b1: { it: "Creazione del sito WordPress da zero", en: "WordPress site built from scratch" },
-    p7_b2: { it: "Ottimizzazione tecnica e delle performance", en: "Technical and performance optimization" },
+    p7_period: { it: "2026", en: "2026", sv: "2026" },
+    p7_role: { it: "WordPress · Creazione & Ottimizzazione", en: "WordPress · Creation & Optimization", sv: "WordPress · Utveckling & Optimering" },
+    p7_b1: { it: "Creazione del sito WordPress da zero", en: "WordPress site built from scratch", sv: "WordPress-webbplats byggd från grunden" },
+    p7_b2: { it: "Ottimizzazione tecnica e delle performance", en: "Technical and performance optimization", sv: "Teknisk optimering och prestandaoptimering" },
 
-    exp_title: { it: "Percorso professionale.", en: "Professional path." },
-    t1_role: { it: "Ecommerce & Marketing Specialist", en: "Ecommerce & Marketing Specialist" },
-    t1_org: { it: "Romanelli Store — Napoli", en: "Romanelli Store — Naples" },
-    t2_role: { it: "Ecommerce & Marketing Specialist", en: "Ecommerce & Marketing Specialist" },
-    t2_org: { it: "22 Spazio Boutique — Napoli", en: "22 Spazio Boutique — Naples" },
-    t3_role: { it: "Ecommerce Manager", en: "Ecommerce Manager" },
-    t3_org: { it: "Zenzero SRLS — Napoli", en: "Zenzero SRLS — Naples" },
-    t4_role: { it: "Social Media Marketing & Ecommerce Manager", en: "Social Media Marketing & Ecommerce Manager" },
-    t4_org: { it: "ElasShape — USA (smart working)", en: "ElasShape — USA (remote)" },
-    t6_period: { it: "01/2022 – 05/2024", en: "01/2022 – 05/2024" },
-    t6_role: { it: "Assistente Amministrativo / Back Office / Istruttore di Nuoto", en: "Administrative Assistant / Back Office / Swimming Instructor" },
-    t6_org: { it: "Vattenhuset AB — Stoccolma", en: "Vattenhuset AB — Stockholm" },
+    exp_title: { it: "Percorso professionale.", en: "Professional path.", sv: "Yrkesbana." },
+    t1_role: { it: "Ecommerce & Marketing Specialist", en: "Ecommerce & Marketing Specialist", sv: "Ecommerce & Marketing Specialist" },
+    t1_org: { it: "Romanelli Store — Napoli", en: "Romanelli Store — Naples", sv: "Romanelli Store — Neapel" },
+    t2_role: { it: "Ecommerce & Marketing Specialist", en: "Ecommerce & Marketing Specialist", sv: "Ecommerce & Marketing Specialist" },
+    t2_org: { it: "22 Spazio Boutique — Napoli", en: "22 Spazio Boutique — Naples", sv: "22 Spazio Boutique — Neapel" },
+    t3_role: { it: "Ecommerce Manager", en: "Ecommerce Manager", sv: "Ecommerce Manager" },
+    t3_org: { it: "Zenzero SRLS — Napoli", en: "Zenzero SRLS — Naples", sv: "Zenzero SRLS — Neapel" },
+    t4_role: { it: "Social Media Marketing & Ecommerce Manager", en: "Social Media Marketing & Ecommerce Manager", sv: "Social Media Marketing & Ecommerce Manager" },
+    t4_org: { it: "ElasShape — USA (smart working)", en: "ElasShape — USA (remote)", sv: "ElasShape — USA (distansarbete)" },
+    t6_period: { it: "01/2022 – 05/2024", en: "01/2022 – 05/2024", sv: "01/2022 – 05/2024" },
+    t6_role: { it: "Assistente Amministrativo / Back Office / Istruttore di Nuoto", en: "Administrative Assistant / Back Office / Swimming Instructor", sv: "Administrativ Assistent / Back Office / Simlärare" },
+    t6_org: { it: "Vattenhuset AB — Stoccolma", en: "Vattenhuset AB — Stockholm", sv: "Vattenhuset AB — Stockholm" },
 
-    contact_title: { it: "Parliamo del tuo prossimo store.", en: "Let's talk about your next store." },
+    contact_title: { it: "Parliamo del tuo prossimo store.", en: "Let's talk about your next store.", sv: "Låt oss prata om din nästa butik." },
     contact_lead: {
       it: "Disponibile per collaborazioni su e-commerce, gestione TikTok Shop, campagne ads ed email marketing.",
-      en: "Available for collaborations on e-commerce, TikTok Shop management, ad campaigns and email marketing."
+      en: "Available for collaborations on e-commerce, TikTok Shop management, ad campaigns and email marketing.",
+      sv: "Tillgänglig för samarbeten inom e-handel, hantering av TikTok Shop, annonskampanjer och e-postmarknadsföring."
     },
-    lang1_name: { it: "Inglese", en: "English" },
-    lang2_name: { it: "Svedese", en: "Swedish" },
-    lang2_level: { it: "Fluente", en: "Fluent" },
-    lang3_name: { it: "Italiano", en: "Italian" },
-    lang3_level: { it: "Base", en: "Basic" },
+    lang1_name: { it: "Inglese", en: "English", sv: "Engelska" },
+    lang2_name: { it: "Svedese", en: "Swedish", sv: "Svenska" },
+    lang2_level: { it: "Fluente", en: "Fluent", sv: "Flytande" },
+    lang3_name: { it: "Italiano", en: "Italian", sv: "Italienska" },
+    lang3_level: { it: "Base", en: "Basic", sv: "Grundläggande" },
 
-    lbl_email: { it: "Email", en: "Email" },
-    lbl_phone: { it: "Telefono", en: "Phone" },
-    lbl_based: { it: "Base", en: "Based in" },
-    val_based: { it: "Napoli, Italia", en: "Naples, Italy" },
-    lbl_repo: { it: "Codice / Repo", en: "Code / Repo" },
+    lbl_email: { it: "Email", en: "Email", sv: "E-post" },
+    lbl_phone: { it: "Telefono", en: "Phone", sv: "Telefon" },
+    lbl_based: { it: "Base", en: "Based in", sv: "Bosatt i" },
+    val_based: { it: "Napoli, Italia", en: "Naples, Italy", sv: "Neapel, Italien" },
+    lbl_repo: { it: "Codice / Repo", en: "Code / Repo", sv: "Kod / Repo" },
 
     footer_text: {
       it: "© 2026 Thisen Smith",
-      en: "© 2026 Thisen Smith"
+      en: "© 2026 Thisen Smith",
+      sv: "© 2026 Thisen Smith"
     }
   };
 
@@ -877,7 +898,7 @@
   let initialLang = 'it';
   try {
     const saved = localStorage.getItem('site-lang');
-    if (saved === 'it' || saved === 'en') initialLang = saved;
+    if (saved === 'it' || saved === 'en' || saved === 'sv') initialLang = saved;
   } catch(e) {}
   applyLang(initialLang);
 </script>
