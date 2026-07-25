@@ -118,18 +118,26 @@
   }
   .eyebrow::before{content:"//"; color:var(--text-dim);}
 
-  .avatar-wrap{
-    width:72px; height:72px; border-radius:16px;
-    padding:2px;
-    background:linear-gradient(135deg, var(--cyan), var(--violet));
-    margin-bottom:24px;
-    box-shadow:0 12px 28px -10px rgba(77,216,230,0.35);
-  }
-  .avatar-wrap img{
-    width:100%; height:100%; border-radius:14px;
-    object-fit:cover; display:block;
-    background:var(--panel);
-  }
+  .avatar-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--cyan), var(--violet));
+  margin-bottom: 24px;
+  box-shadow: 0 12px 28px -10px rgba(77,216,230,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+  display: block;
+}
 
   h1.title{
     font-family:var(--font-display);
@@ -394,7 +402,7 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="avatar-wrap"><img src="https://res.cloudinary.com/dab8p8lgh/image/upload/v1785013507/Untitled_19_x_27_cm_15_x_25_cm_ul3kmj.png" alt="Thisen Smith"></div>
+      <div class="avatar-wrap"><img src="https://res.cloudinary.com/dab8p8lgh/image/upload/v1785014219/with_the_bg_logo_2_w2z37g.png" alt="Thisen Smith"></div>
       <div class="eyebrow" data-i18n="hero_eyebrow">status: disponibile per nuovi progetti</div>
       <h1 class="title" data-i18n-html="hero_title">Storefront che <span class="grad">convertono</span>.<br>Campagne che <span class="grad">scalano</span>.</h1>
       <p class="lead" data-i18n="hero_lead">Sono Thisen Smith, e-commerce & digital marketing specialist. Costruisco e ottimizzo store Shopify, WooCommerce e TikTok Shop, e guido campagne ads e email marketing dal lancio alla crescita.</p>
