@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thisen Smith — E-commerce & Digital Marketing Specialist</title>
+<meta name="description" content="Portfolio di Thisen Smith — specialista e-commerce e digital marketing: Shopify, TikTok Shop, WooCommerce, WordPress, Google Ads.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0d12;
+    --panel: #12161f;
+    --panel-2: #171c27;
+    --line: #232a38;
+    --text: #e7ebf3;
+    --text-dim: #8993a6;
+    --cyan: #4dd8e6;
+    --violet: #8b7dfb;
+    --amber: #f4b860;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:
+      radial-gradient(circle at 15% 0%, rgba(139,125,251,0.10), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(77,216,230,0.08), transparent 40%),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  ::selection{background:var(--cyan); color:#0a0d12;}
+
+  a{color:inherit; text-decoration:none;}
+
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,13,18,0.75);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .brand{
+    font-family:var(--font-mono);
+    font-size:15px;
+    color:var(--text);
+    display:flex; align-items:center; gap:8px;
+  }
+  .brand .dot{width:8px; height:8px; border-radius:50%; background:var(--cyan); box-shadow:0 0 12px var(--cyan);}
+  .navlinks{display:flex; gap:32px; font-family:var(--font-mono); font-size:13px; color:var(--text-dim);}
+  .navlinks a{transition:color .2s;}
+  .navlinks a:hover{color:var(--cyan);}
+  .navlinks .idx{color:var(--violet); margin-right:6px;}
+
+  @media (max-width:720px){ .navlinks{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:120px 0 96px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse at 30% 20%, black 0%, transparent 65%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:56px;
+    align-items:center;
+    position:relative;
+  }
+  @media (max-width:880px){ .hero-grid{grid-template-columns:1fr;} }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--cyan);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:24px;
+  }
+  .eyebrow::before{content:"//"; color:var(--text-dim);}
+
+  h1.title{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(40px, 6vw, 68px);
+    line-height:1.04;
+    letter-spacing:-0.02em;
+    margin-bottom:20px;
+  }
+  h1.title .grad{
+    background:linear-gradient(90deg, var(--cyan), var(--violet));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+
+  .lead{
+    color:var(--text-dim);
+    font-size:17px;
+    max-width:52ch;
+    margin-bottom:32px;
+  }
+
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--font-mono);
+    font-size:13px;
+    padding:12px 20px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    transition:all .2s;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn.primary{
+    background:var(--cyan); color:#0a0d12; border-color:var(--cyan); font-weight:600;
+  }
+  .btn.primary:hover{background:#6ee3ee;}
+  .btn.ghost:hover{border-color:var(--cyan); color:var(--cyan);}
+
+  /* terminal card */
+  .terminal{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+  }
+  .terminal-bar{
+    display:flex; align-items:center; gap:8px;
+    padding:12px 16px;
+    background:var(--panel-2);
+    border-bottom:1px solid var(--line);
+  }
+  .terminal-bar span{width:10px; height:10px; border-radius:50%; display:inline-block;}
+  .terminal-bar .r{background:#ef6a5f;}
+  .terminal-bar .y{background:#f4bf4f;}
+  .terminal-bar .g{background:#61c454;}
+  .terminal-bar .path{
+    margin-left:12px; font-family:var(--font-mono); font-size:12px; color:var(--text-dim);
+  }
+  .terminal-body{
+    padding:22px 20px;
+    font-family:var(--font-mono);
+    font-size:13.5px;
+    color:#c9d1e0;
+    min-height:220px;
+  }
+  .terminal-body .p{color:var(--cyan);}
+  .terminal-body .k{color:var(--violet);}
+  .terminal-line{margin-bottom:10px; opacity:0; animation:fadein .4s forwards;}
+  .cursor{
+    display:inline-block; width:8px; height:16px; background:var(--cyan);
+    vertical-align:middle; animation:blink 1s steps(1) infinite;
+  }
+  @keyframes fadein{to{opacity:1;}}
+  @keyframes blink{50%{opacity:0;}}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:96px 0; border-bottom:1px solid var(--line);}
+  .section-head{margin-bottom:48px;}
+  .section-label{
+    font-family:var(--font-mono); font-size:13px; color:var(--violet);
+    display:flex; align-items:center; gap:10px; margin-bottom:12px;
+  }
+  .section-label::before{content:""; width:24px; height:1px; background:var(--violet);}
+  h2.section-title{
+    font-family:var(--font-display); font-size:clamp(28px,4vw,38px); font-weight:600; letter-spacing:-0.01em;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:1.4fr 1fr; gap:56px;
+  }
+  @media (max-width:880px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{color:var(--text-dim); margin-bottom:18px; font-size:15.5px;}
+  .stat-list{display:flex; flex-direction:column; gap:0;}
+  .stat{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:18px 0; border-bottom:1px solid var(--line);
+  }
+  .stat:last-child{border-bottom:none;}
+  .stat .num{font-family:var(--font-display); font-size:28px; font-weight:700; color:var(--cyan);}
+  .stat .label{font-family:var(--font-mono); font-size:12.5px; color:var(--text-dim); text-align:right;}
+
+  /* ---------- STACK / SKILLS ---------- */
+  .stack-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;
+  }
+  @media (max-width:880px){ .stack-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:520px){ .stack-grid{grid-template-columns:1fr;} }
+  .stack-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:22px; transition:border-color .2s, transform .2s;
+  }
+  .stack-card:hover{border-color:var(--cyan); transform:translateY(-2px);}
+  .stack-card .tag{
+    font-family:var(--font-mono); font-size:11px; color:var(--amber); margin-bottom:10px; display:block;
+  }
+  .stack-card h3{font-family:var(--font-display); font-size:17px; margin-bottom:10px;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:var(--font-mono); font-size:11.5px; color:var(--text-dim);
+    border:1px solid var(--line); padding:4px 10px; border-radius:20px;
+  }
+
+  /* ---------- PROJECTS (browser-window cards) ---------- */
+  .project-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:28px;
+  }
+  @media (max-width:880px){ .project-grid{grid-template-columns:1fr;} }
+
+  .project-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    overflow:hidden; transition:border-color .25s, transform .25s;
+  }
+  .project-card:hover{border-color:var(--violet); transform:translateY(-3px);}
+
+  .browser-chrome{
+    display:flex; align-items:center; gap:10px;
+    padding:11px 14px; background:var(--panel-2); border-bottom:1px solid var(--line);
+  }
+  .browser-chrome .dots{display:flex; gap:6px;}
+  .browser-chrome .dots span{width:9px; height:9px; border-radius:50%;}
+  .browser-chrome .dots .r{background:#ef6a5f;} .browser-chrome .dots .y{background:#f4bf4f;} .browser-chrome .dots .g{background:#61c454;}
+  .url-bar{
+    flex:1; font-family:var(--font-mono); font-size:11.5px; color:var(--text-dim);
+    background:var(--bg); border:1px solid var(--line); border-radius:6px;
+    padding:5px 10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+
+  .project-visual{
+    height:120px;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    border-bottom:1px solid var(--line);
+  }
+  .project-visual .glyph{
+    font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:0.06em;
+    color:rgba(255,255,255,0.85); z-index:2; text-transform:uppercase;
+  }
+  .project-visual::after{
+    content:""; position:absolute; inset:0;
+    background-image:linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size:16px 16px;
+  }
+
+  .project-body{padding:22px;}
+  .project-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:6px;}
+  .project-body h3{font-family:var(--font-display); font-size:19px;}
+  .project-period{font-family:var(--font-mono); font-size:11px; color:var(--text-dim); white-space:nowrap; padding-top:4px;}
+  .project-role{font-family:var(--font-mono); font-size:12px; color:var(--cyan); margin-bottom:14px;}
+  .project-body ul{list-style:none; margin-bottom:16px;}
+  .project-body li{
+    font-size:13.5px; color:var(--text-dim); padding-left:16px; position:relative; margin-bottom:7px;
+  }
+  .project-body li::before{content:"▸"; position:absolute; left:0; color:var(--violet);}
+  .project-link{
+    font-family:var(--font-mono); font-size:12px; color:var(--amber);
+    display:inline-flex; align-items:center; gap:6px; border-top:1px solid var(--line); padding-top:14px; width:100%;
+  }
+  .project-link svg{width:12px; height:12px;}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{border-left:1px solid var(--line); margin-left:6px; padding-left:32px;}
+  .tl-item{position:relative; padding-bottom:36px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:""; position:absolute; left:-37px; top:4px;
+    width:11px; height:11px; border-radius:50%; background:var(--bg);
+    border:2px solid var(--cyan);
+  }
+  .tl-period{font-family:var(--font-mono); font-size:12px; color:var(--cyan); margin-bottom:4px;}
+  .tl-role{font-family:var(--font-display); font-size:17px; font-weight:600;}
+  .tl-org{color:var(--text-dim); font-size:13.5px; margin-bottom:8px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact{border-bottom:none;}
+  .contact-grid{
+    display:grid; grid-template-columns:1.2fr 1fr; gap:56px; align-items:start;
+  }
+  @media (max-width:880px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact h2.section-title{margin-bottom:20px;}
+  .contact p.lead{color:var(--text-dim); max-width:48ch; margin-bottom:32px;}
+  .contact-cards{display:flex; flex-direction:column; gap:12px;}
+  .ccard{
+    display:flex; align-items:center; gap:14px;
+    background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px 18px;
+    transition:border-color .2s;
+  }
+  .ccard:hover{border-color:var(--cyan);}
+  .ccard .icon{
+    width:36px; height:36px; border-radius:8px; background:var(--panel-2);
+    display:flex; align-items:center; justify-content:center; color:var(--cyan); flex-shrink:0;
+  }
+  .ccard .lbl{font-family:var(--font-mono); font-size:10.5px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.05em;}
+  .ccard .val{font-family:var(--font-mono); font-size:13.5px; color:var(--text);}
+
+  .lang-strip{display:flex; gap:10px; flex-wrap:wrap; margin-top:20px;}
+  .lang-pill{
+    font-family:var(--font-mono); font-size:12px; padding:8px 14px; border-radius:20px;
+    border:1px solid var(--line); color:var(--text-dim);
+  }
+  .lang-pill b{color:var(--text);}
+
+  footer{
+    padding:32px 0; text-align:center;
+    font-family:var(--font-mono); font-size:12px; color:var(--text-dim);
+  }
+  footer .dot{color:var(--violet);}
+
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+    .terminal-line{opacity:1; animation:none;}
+    .cursor{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand"><span class="dot"></span>thisen.smith</div>
+    <div class="navlinks">
+      <a href="#about"><span class="idx">01</span>About</a>
+      <a href="#stack"><span class="idx">02</span>Stack</a>
+      <a href="#work"><span class="idx">03</span>Work</a>
+      <a href="#experience"><span class="idx">04</span>Experience</a>
+      <a href="#contact"><span class="idx">05</span>Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">status: open to new projects</div>
+      <h1 class="title">Storefronts that <span class="grad">convert</span>.<br>Campaigns that <span class="grad">scale</span>.</h1>
+      <p class="lead">Sono Thisen Smith, e-commerce & digital marketing specialist. Costruisco e ottimizzo store Shopify, WooCommerce e TikTok Shop, e guido campagne ads e email marketing dal lancio alla crescita.</p>
+      <div class="cta-row">
+        <a href="#work" class="btn primary">Vedi i progetti →</a>
+        <a href="#contact" class="btn ghost">Contattami</a>
+      </div>
+    </div>
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="r"></span><span class="y"></span><span class="g"></span>
+        <span class="path">~/thisen-smith/profile.sh</span>
+      </div>
+      <div class="terminal-body" id="termBody">
+        <div class="terminal-line" style="animation-delay:.1s"><span class="p">$</span> whoami</div>
+        <div class="terminal-line" style="animation-delay:.5s">e-commerce & digital marketing specialist</div>
+        <div class="terminal-line" style="animation-delay:.9s"><span class="p">$</span> stack --list</div>
+        <div class="terminal-line" style="animation-delay:1.3s"><span class="k">shopify</span> · <span class="k">tiktok shop</span> · <span class="k">woocommerce</span> · <span class="k">wordpress</span></div>
+        <div class="terminal-line" style="animation-delay:1.7s"><span class="p">$</span> ads --platforms</div>
+        <div class="terminal-line" style="animation-delay:2.1s"><span class="k">google</span> · <span class="k">meta</span> · <span class="k">tiktok</span></div>
+        <div class="terminal-line" style="animation-delay:2.5s"><span class="p">$</span> languages</div>
+        <div class="terminal-line" style="animation-delay:2.9s">english (C2) · svenska · italiano</div>
+        <div class="terminal-line" style="animation-delay:3.3s"><span class="p">$</span> <span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="section-head">
+        <div class="section-label">01 / about</div>
+        <h2 class="section-title">Dal catalogo al checkout.</h2>
+      </div>
+      <p>Mi occupo di e-commerce e digital marketing su più canali: gestione operativa e strategica di store TikTok Shop, Shopify, WooCommerce e WordPress, con un focus costante su conversioni, ROAS e crescita delle vendite.</p>
+      <p>Lavoro sull'intera filiera: catalogo prodotti, pricing, conformità, customer care, campagne advertising, collaborazioni con creator e affiliati, email marketing e ottimizzazione tecnica dei siti — così ogni store che tocco cresce sia in traffico che in conversione.</p>
+    </div>
+    <div class="stat-list reveal">
+      <div class="stat"><span class="num">6+</span><span class="label">store / progetti<br>e-commerce seguiti</span></div>
+      <div class="stat"><span class="num">4</span><span class="label">piattaforme<br>Shopify · WooCommerce · WordPress · TikTok Shop</span></div>
+      <div class="stat"><span class="num">3</span><span class="label">lingue<br>Inglese · Svedese · Italiano</span></div>
+      <div class="stat"><span class="num">3</span><span class="label">canali ads gestiti<br>Google · Meta · TikTok</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">02 / stack</div>
+      <h2 class="section-title">Strumenti che uso ogni giorno.</h2>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-card reveal">
+        <span class="tag">PIATTAFORME E-COMMERCE</span>
+        <h3>Store & Marketplace</h3>
+        <div class="chip-row">
+          <span class="chip">Shopify</span><span class="chip">TikTok Shop</span><span class="chip">WooCommerce</span><span class="chip">Amazon Seller</span>
+        </div>
+      </div>
+      <div class="stack-card reveal">
+        <span class="tag">CMS</span>
+        <h3>Siti & Contenuti</h3>
+        <div class="chip-row">
+          <span class="chip">WordPress</span><span class="chip">SEO on-page</span><span class="chip">CRO / A/B test</span>
+        </div>
+      </div>
+      <div class="stack-card reveal">
+        <span class="tag">ADVERTISING</span>
+        <h3>Campagne & Ads</h3>
+        <div class="chip-row">
+          <span class="chip">Google Ads</span><span class="chip">Facebook Ads</span><span class="chip">Instagram Ads</span><span class="chip">TikTok Ads</span>
+        </div>
+      </div>
+      <div class="stack-card reveal">
+        <span class="tag">ANALYTICS</span>
+        <h3>Dati & Performance</h3>
+        <div class="chip-row">
+          <span class="chip">Google Analytics</span><span class="chip">Meta Insights</span><span class="chip">GMV / ROAS</span>
+        </div>
+      </div>
+      <div class="stack-card reveal">
+        <span class="tag">EMAIL MARKETING</span>
+        <h3>CRM & Automazioni</h3>
+        <div class="chip-row">
+          <span class="chip">Klaviyo</span><span class="chip">Mailchimp</span><span class="chip">Brevo</span><span class="chip">MailerLite</span>
+        </div>
+      </div>
+      <div class="stack-card reveal">
+        <span class="tag">DESIGN & PAGAMENTI</span>
+        <h3>Creatività & Checkout</h3>
+        <div class="chip-row">
+          <span class="chip">Canva</span><span class="chip">Photoshop</span><span class="chip">Illustrator</span><span class="chip">Klarna</span><span class="chip">Scalapay</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">03 / work</div>
+      <h2 class="section-title">Store e siti su cui ho lavorato.</h2>
+    </div>
+    <div class="project-grid">
+
+      <div class="project-card reveal">
+        <div class="browser-chrome">
+          <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+          <div class="url-bar">22spazioboutique.com</div>
+        </div>
+        <div class="project-visual" style="background:linear-gradient(135deg, rgba(77,216,230,0.18), rgba(139,125,251,0.10));">
+          <span class="glyph">22 Spazio Boutique</span>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <h3>22 Spazio Boutique</h3>
+            <span class="project-period">04/2026 – in corso</span>
+          </div>
+          <div class="project-role">Ecommerce & Marketing Specialist · Napoli</div>
+          <ul>
+            <li>Gestione e crescita dello store Shopify del brand</li>
+            <li>Campagne Google Ads per traffico qualificato</li>
+            <li>Email marketing: newsletter, automazioni, recupero carrelli</li>
+          </ul>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            visita lo store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="browser-chrome">
+          <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+          <div class="url-bar">urbanmoves.se</div>
+        </div>
+        <div class="project-visual" style="background:linear-gradient(135deg, rgba(244,184,96,0.16), rgba(77,216,230,0.10));">
+          <span class="glyph">Urban Moves</span>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <h3>Urban Moves</h3>
+            <span class="project-period">04/2023 – 04/2024</span>
+          </div>
+          <div class="project-role">Back Office & Social Media Specialist · Svezia</div>
+          <ul>
+            <li>Store Shopify — vendite +20%</li>
+            <li>Strategie social Facebook / Instagram</li>
+            <li>Campagne Ads — CPC -30%</li>
+          </ul>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            visita lo store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="browser-chrome">
+          <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+          <div class="url-bar">zenzero-shop.it</div>
+        </div>
+        <div class="project-visual" style="background:linear-gradient(135deg, rgba(139,125,251,0.18), rgba(244,184,96,0.10));">
+          <span class="glyph">Zenzero</span>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <h3>Zenzero SRLS</h3>
+            <span class="project-period">01/2025 – 07/2026</span>
+          </div>
+          <div class="project-role">Ecommerce Manager · Napoli</div>
+          <ul>
+            <li>E-commerce Shopify + TikTok Shop integrati</li>
+            <li>Amazon Seller Central: prodotti e ordini</li>
+            <li>Google Ads, TikTok, Instagram · Klarna / Scalapay</li>
+          </ul>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            visita lo store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="browser-chrome">
+          <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+          <div class="url-bar">romanellistore.com</div>
+        </div>
+        <div class="project-visual" style="background:linear-gradient(135deg, rgba(77,216,230,0.14), rgba(139,125,251,0.16));">
+          <span class="glyph">Romanelli Store</span>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <h3>Romanelli Store</h3>
+            <span class="project-period">07/2026 – in corso</span>
+          </div>
+          <div class="project-role">Ecommerce & Marketing Specialist · Napoli</div>
+          <ul>
+            <li>Store WooCommerce / WordPress — calzature alta gamma</li>
+            <li>Posizionamento brand e marketing digitale</li>
+            <li>Ottimizzazione UX e conversioni</li>
+          </ul>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            visita lo store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="browser-chrome">
+          <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+          <div class="url-bar">elasshape.com</div>
+        </div>
+        <div class="project-visual" style="background:linear-gradient(135deg, rgba(244,184,96,0.18), rgba(139,125,251,0.10));">
+          <span class="glyph">ElasShape</span>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <h3>ElasShape</h3>
+            <span class="project-period">04/2025 – 10/2025</span>
+          </div>
+          <div class="project-role">Social Media Marketing & Ecommerce Manager · USA (remoto)</div>
+          <ul>
+            <li>Follower +30% in due mesi, engagement +35%</li>
+            <li>CAC -10%, conversioni +25%</li>
+            <li>Collaborazioni con influencer e ambassador</li>
+          </ul>
+          <a class="project-link" href="#" target="_blank" rel="noopener">
+            visita lo store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-label">04 / experience</div>
+      <h2 class="section-title">Percorso professionale.</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-period">07/2026 – in corso</div>
+        <div class="tl-role">Ecommerce & Marketing Specialist</div>
+        <div class="tl-org">Romanelli Store — Napoli</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">04/2026 – in corso</div>
+        <div class="tl-role">Ecommerce & Marketing Specialist</div>
+        <div class="tl-org">22 Spazio Boutique — Napoli</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">01/2025 – 07/2026</div>
+        <div class="tl-role">Ecommerce Manager</div>
+        <div class="tl-org">Zenzero SRLS — Napoli</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">04/2025 – 10/2025</div>
+        <div class="tl-role">Social Media Marketing & Ecommerce Manager</div>
+        <div class="tl-org">ElasShape — USA (smart working)</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">04/2023 – 04/2024</div>
+        <div class="tl-role">Back Office Agent & Social Media Marketing Specialist</div>
+        <div class="tl-org">Urban Moves — Svezia</div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-period">01/2022 – 05/2024</div>
+        <div class="tl-role">Assistente Amministrativo / Back Office / Istruttore di Nuoto</div>
+        <div class="tl-org">Vattenhuset AB — Stoccolma</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="section-head">
+        <div class="section-label">05 / contact</div>
+        <h2 class="section-title">Parliamo del tuo prossimo store.</h2>
+      </div>
+      <p class="lead">Disponibile per collaborazioni su e-commerce, gestione TikTok Shop, campagne ads ed email marketing.</p>
+      <div class="lang-strip">
+        <span class="lang-pill">🇬🇧 <b>Inglese</b> · C2</span>
+        <span class="lang-pill">🇸🇪 <b>Svedese</b> · Fluente</span>
+        <span class="lang-pill">🇮🇹 <b>Italiano</b> · Base</span>
+      </div>
+    </div>
+    <div class="contact-cards">
+      <a class="ccard" href="mailto:tnarangoda30@gmail.com">
+        <span class="icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+        </span>
+        <div><div class="lbl">Email</div><div class="val">tnarangoda30@gmail.com</div></div>
+      </a>
+      <a class="ccard" href="tel:+393447085566">
+        <span class="icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </span>
+        <div><div class="lbl">Telefono</div><div class="val">+39 344 7085566</div></div>
+      </a>
+      <div class="ccard">
+        <span class="icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </span>
+        <div><div class="lbl">Base</div><div class="val">Napoli, Italia</div></div>
+      </div>
+      <a class="ccard" href="https://github.com/" target="_blank" rel="noopener">
+        <span class="icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.11.79-.25.79-.56 0-.27-.01-1-.02-1.97-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.05 11.05 0 015.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.68 5.38-5.24 5.67.42.36.78 1.07.78 2.17 0 1.56-.01 2.82-.01 3.2 0 .31.21.68.8.56A11.51 11.51 0 0023.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
+        </span>
+        <div><div class="lbl">Codice / Repo</div><div class="val">github.com/tuo-username</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Thisen Smith <span class="dot">•</span> built &amp; deployed with GitHub Pages</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('in');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
