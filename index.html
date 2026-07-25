@@ -118,26 +118,18 @@
   }
   .eyebrow::before{content:"//"; color:var(--text-dim);}
 
-  .avatar-wrap {
-  width: 72px;
-  height: 72px;
-  border-radius: 16px;
-  padding: 2px;
-  background: linear-gradient(135deg, var(--cyan), var(--violet));
-  margin-bottom: 24px;
-  box-shadow: 0 12px 28px -10px rgba(77,216,230,0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.avatar-wrap img {
-  width: 100%;
-  height: 100%;
-  border-radius: 14px;
-  object-fit: cover;
-  display: block;
-}
+  .avatar-wrap{
+    width:320px; max-width:80%; margin:0 auto 40px;
+    padding:3px;
+    border-radius:20px;
+    background:linear-gradient(135deg, var(--cyan), var(--violet));
+    box-shadow:0 24px 48px -16px rgba(77,216,230,0.35);
+  }
+  .avatar-wrap img{
+    width:100%; height:auto; border-radius:18px;
+    object-fit:cover; display:block;
+    background:var(--panel);
+  }
 
   h1.title{
     font-family:var(--font-display);
@@ -440,6 +432,7 @@
       </div>
       <p data-i18n="about_p1">Mi occupo di e-commerce e digital marketing su più canali: gestione operativa e strategica di store TikTok Shop, Shopify, WooCommerce e WordPress, con un focus costante su conversioni, ROAS e crescita delle vendite.</p>
       <p data-i18n="about_p2">Lavoro sull'intera filiera: catalogo prodotti, pricing, conformità, customer care, campagne advertising, collaborazioni con creator e affiliati, email marketing e ottimizzazione tecnica dei siti — così ogni store che tocco cresce sia in traffico che in conversione.</p>
+      <div class="avatar-wrap"><img src="https://res.cloudinary.com/dab8p8lgh/image/upload/v1785014219/with_the_bg_logo_2_w2z37g.png" alt="Thisen Smith"></div>
     </div>
     <div class="stat-list reveal">
       <div class="stat"><span class="num">6+</span><span class="label" data-i18n-html="stat1_label">store / progetti<br>e-commerce seguiti</span></div>
