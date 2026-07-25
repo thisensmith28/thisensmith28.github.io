@@ -54,20 +54,34 @@
   nav.wrap{
     display:flex; align-items:center; justify-content:space-between;
     height:64px;
+    gap:16px;
   }
   .brand{
     font-family:var(--font-mono);
     font-size:15px;
     color:var(--text);
     display:flex; align-items:center; gap:8px;
+    flex-shrink:0;
   }
   .brand .dot{width:8px; height:8px; border-radius:50%; background:var(--cyan); box-shadow:0 0 12px var(--cyan);}
+  .nav-right{display:flex; align-items:center; gap:28px;}
   .navlinks{display:flex; gap:32px; font-family:var(--font-mono); font-size:13px; color:var(--text-dim);}
   .navlinks a{transition:color .2s;}
   .navlinks a:hover{color:var(--cyan);}
   .navlinks .idx{color:var(--violet); margin-right:6px;}
 
   @media (max-width:720px){ .navlinks{display:none;} }
+
+  .lang-toggle{
+    display:flex; align-items:center; border:1px solid var(--line); border-radius:20px; padding:3px; gap:2px; flex-shrink:0;
+  }
+  .lang-btn{
+    font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.03em;
+    padding:6px 12px; border-radius:16px; border:none; background:transparent; color:var(--text-dim);
+    cursor:pointer; transition:all .2s;
+  }
+  .lang-btn.active{background:var(--cyan); color:#0a0d12; font-weight:600;}
+  .lang-btn:not(.active):hover{color:var(--text);}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -347,12 +361,18 @@
 <header>
   <nav class="wrap">
     <div class="brand"><span class="dot"></span>thisen.smith</div>
-    <div class="navlinks">
-      <a href="#about"><span class="idx">01</span>About</a>
-      <a href="#stack"><span class="idx">02</span>Stack</a>
-      <a href="#work"><span class="idx">03</span>Work</a>
-      <a href="#experience"><span class="idx">04</span>Experience</a>
-      <a href="#contact"><span class="idx">05</span>Contact</a>
+    <div class="nav-right">
+      <div class="navlinks">
+        <a href="#about"><span class="idx">01</span>About</a>
+        <a href="#stack"><span class="idx">02</span>Stack</a>
+        <a href="#work"><span class="idx">03</span>Work</a>
+        <a href="#experience"><span class="idx">04</span>Experience</a>
+        <a href="#contact"><span class="idx">05</span>Contact</a>
+      </div>
+      <div class="lang-toggle" role="group" aria-label="Language switch">
+        <button class="lang-btn" data-lang="it">IT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
     </div>
   </nav>
 </header>
@@ -360,12 +380,12 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">status: open to new projects</div>
-      <h1 class="title">Storefronts that <span class="grad">convert</span>.<br>Campaigns that <span class="grad">scale</span>.</h1>
-      <p class="lead">Sono Thisen Smith, e-commerce & digital marketing specialist. Costruisco e ottimizzo store Shopify, WooCommerce e TikTok Shop, e guido campagne ads e email marketing dal lancio alla crescita.</p>
+      <div class="eyebrow" data-i18n="hero_eyebrow">status: disponibile per nuovi progetti</div>
+      <h1 class="title" data-i18n-html="hero_title">Storefront che <span class="grad">convertono</span>.<br>Campagne che <span class="grad">scalano</span>.</h1>
+      <p class="lead" data-i18n="hero_lead">Sono Thisen Smith, e-commerce & digital marketing specialist. Costruisco e ottimizzo store Shopify, WooCommerce e TikTok Shop, e guido campagne ads e email marketing dal lancio alla crescita.</p>
       <div class="cta-row">
-        <a href="#work" class="btn primary">Vedi i progetti →</a>
-        <a href="#contact" class="btn ghost">Contattami</a>
+        <a href="#work" class="btn primary" data-i18n="btn_projects">Vedi i progetti →</a>
+        <a href="#contact" class="btn ghost" data-i18n="btn_contact">Contattami</a>
       </div>
     </div>
 
@@ -394,16 +414,16 @@
     <div>
       <div class="section-head">
         <div class="section-label">01 / about</div>
-        <h2 class="section-title">Dal catalogo al checkout.</h2>
+        <h2 class="section-title" data-i18n="about_title">Dal catalogo al checkout.</h2>
       </div>
-      <p>Mi occupo di e-commerce e digital marketing su più canali: gestione operativa e strategica di store TikTok Shop, Shopify, WooCommerce e WordPress, con un focus costante su conversioni, ROAS e crescita delle vendite.</p>
-      <p>Lavoro sull'intera filiera: catalogo prodotti, pricing, conformità, customer care, campagne advertising, collaborazioni con creator e affiliati, email marketing e ottimizzazione tecnica dei siti — così ogni store che tocco cresce sia in traffico che in conversione.</p>
+      <p data-i18n="about_p1">Mi occupo di e-commerce e digital marketing su più canali: gestione operativa e strategica di store TikTok Shop, Shopify, WooCommerce e WordPress, con un focus costante su conversioni, ROAS e crescita delle vendite.</p>
+      <p data-i18n="about_p2">Lavoro sull'intera filiera: catalogo prodotti, pricing, conformità, customer care, campagne advertising, collaborazioni con creator e affiliati, email marketing e ottimizzazione tecnica dei siti — così ogni store che tocco cresce sia in traffico che in conversione.</p>
     </div>
     <div class="stat-list reveal">
-      <div class="stat"><span class="num">6+</span><span class="label">store / progetti<br>e-commerce seguiti</span></div>
-      <div class="stat"><span class="num">4</span><span class="label">piattaforme<br>Shopify · WooCommerce · WordPress · TikTok Shop</span></div>
-      <div class="stat"><span class="num">3</span><span class="label">lingue<br>Inglese · Svedese · Italiano</span></div>
-      <div class="stat"><span class="num">3</span><span class="label">canali ads gestiti<br>Google · Meta · TikTok</span></div>
+      <div class="stat"><span class="num">6+</span><span class="label" data-i18n-html="stat1_label">store / progetti<br>e-commerce seguiti</span></div>
+      <div class="stat"><span class="num">4</span><span class="label" data-i18n-html="stat2_label">piattaforme<br>Shopify · WooCommerce · WordPress · TikTok Shop</span></div>
+      <div class="stat"><span class="num">3</span><span class="label" data-i18n-html="stat3_label">lingue<br>Inglese · Svedese · Italiano</span></div>
+      <div class="stat"><span class="num">3</span><span class="label" data-i18n-html="stat4_label">canali ads gestiti<br>Google · Meta · TikTok</span></div>
     </div>
   </div>
 </section>
@@ -412,47 +432,47 @@
   <div class="wrap">
     <div class="section-head">
       <div class="section-label">02 / stack</div>
-      <h2 class="section-title">Strumenti che uso ogni giorno.</h2>
+      <h2 class="section-title" data-i18n="stack_title">Strumenti che uso ogni giorno.</h2>
     </div>
     <div class="stack-grid">
       <div class="stack-card reveal">
-        <span class="tag">PIATTAFORME E-COMMERCE</span>
-        <h3>Store & Marketplace</h3>
+        <span class="tag" data-i18n="card1_tag">PIATTAFORME E-COMMERCE</span>
+        <h3 data-i18n="card1_title">Store & Marketplace</h3>
         <div class="chip-row">
           <span class="chip">Shopify</span><span class="chip">TikTok Shop</span><span class="chip">WooCommerce</span><span class="chip">Amazon Seller</span>
         </div>
       </div>
       <div class="stack-card reveal">
-        <span class="tag">CMS</span>
-        <h3>Siti & Contenuti</h3>
+        <span class="tag" data-i18n="card2_tag">CMS</span>
+        <h3 data-i18n="card2_title">Siti & Contenuti</h3>
         <div class="chip-row">
           <span class="chip">WordPress</span><span class="chip">SEO on-page</span><span class="chip">CRO / A/B test</span>
         </div>
       </div>
       <div class="stack-card reveal">
-        <span class="tag">ADVERTISING</span>
-        <h3>Campagne & Ads</h3>
+        <span class="tag" data-i18n="card3_tag">ADVERTISING</span>
+        <h3 data-i18n="card3_title">Campagne & Ads</h3>
         <div class="chip-row">
           <span class="chip">Google Ads</span><span class="chip">Facebook Ads</span><span class="chip">Instagram Ads</span><span class="chip">TikTok Ads</span>
         </div>
       </div>
       <div class="stack-card reveal">
-        <span class="tag">ANALYTICS</span>
-        <h3>Dati & Performance</h3>
+        <span class="tag" data-i18n="card4_tag">ANALYTICS</span>
+        <h3 data-i18n="card4_title">Dati & Performance</h3>
         <div class="chip-row">
           <span class="chip">Google Analytics</span><span class="chip">Meta Insights</span><span class="chip">GMV / ROAS</span>
         </div>
       </div>
       <div class="stack-card reveal">
-        <span class="tag">EMAIL MARKETING</span>
-        <h3>CRM & Automazioni</h3>
+        <span class="tag" data-i18n="card5_tag">EMAIL MARKETING</span>
+        <h3 data-i18n="card5_title">CRM & Automazioni</h3>
         <div class="chip-row">
           <span class="chip">Klaviyo</span><span class="chip">Mailchimp</span><span class="chip">Brevo</span><span class="chip">MailerLite</span>
         </div>
       </div>
       <div class="stack-card reveal">
-        <span class="tag">DESIGN & PAGAMENTI</span>
-        <h3>Creatività & Checkout</h3>
+        <span class="tag" data-i18n="card6_tag">DESIGN & PAGAMENTI</span>
+        <h3 data-i18n="card6_title">Creatività & Checkout</h3>
         <div class="chip-row">
           <span class="chip">Canva</span><span class="chip">Photoshop</span><span class="chip">Illustrator</span><span class="chip">Klarna</span><span class="chip">Scalapay</span>
         </div>
@@ -465,7 +485,7 @@
   <div class="wrap">
     <div class="section-head">
       <div class="section-label">03 / work</div>
-      <h2 class="section-title">Store e siti su cui ho lavorato.</h2>
+      <h2 class="section-title" data-i18n="work_title">Store e siti su cui ho lavorato.</h2>
     </div>
     <div class="project-grid">
 
@@ -480,16 +500,17 @@
         <div class="project-body">
           <div class="project-top">
             <h3>22 Spazio Boutique</h3>
-            <span class="project-period">04/2026 – in corso</span>
+            <span class="project-period" data-i18n="p1_period">05/2026 – in corso</span>
           </div>
-          <div class="project-role">Ecommerce & Marketing Specialist · Napoli</div>
+          <div class="project-role" data-i18n="p1_role">Ecommerce & Marketing Specialist · Napoli</div>
           <ul>
-            <li>Gestione e crescita dello store Shopify del brand</li>
-            <li>Campagne Google Ads per traffico qualificato</li>
-            <li>Email marketing: newsletter, automazioni, recupero carrelli</li>
+            <li data-i18n="p1_b1">Gestione e crescita dello store Shopify del brand</li>
+            <li data-i18n="p1_b2">Campagne Google Ads per traffico qualificato</li>
+            <li data-i18n="p1_b3">Email marketing: newsletter, automazioni, recupero carrelli</li>
+            <li data-i18n="p1_b4">Gestione vendite su TikTok Shop</li>
           </ul>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            visita lo store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          <a class="project-link" href="https://www.22spazioboutique.com/" target="_blank" rel="noopener">
+            <span data-i18n="link_visit">visita lo store</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
           </a>
         </div>
       </div>
@@ -497,32 +518,7 @@
       <div class="project-card reveal">
         <div class="browser-chrome">
           <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
-          <div class="url-bar">urbanmoves.se</div>
-        </div>
-        <div class="project-visual" style="background:linear-gradient(135deg, rgba(244,184,96,0.16), rgba(77,216,230,0.10));">
-          <span class="glyph">Urban Moves</span>
-        </div>
-        <div class="project-body">
-          <div class="project-top">
-            <h3>Urban Moves</h3>
-            <span class="project-period">04/2023 – 04/2024</span>
-          </div>
-          <div class="project-role">Back Office & Social Media Specialist · Svezia</div>
-          <ul>
-            <li>Store Shopify — vendite +20%</li>
-            <li>Strategie social Facebook / Instagram</li>
-            <li>Campagne Ads — CPC -30%</li>
-          </ul>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            visita lo store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="browser-chrome">
-          <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
-          <div class="url-bar">zenzero-shop.it</div>
+          <div class="url-bar">zenzeroshop.com</div>
         </div>
         <div class="project-visual" style="background:linear-gradient(135deg, rgba(139,125,251,0.18), rgba(244,184,96,0.10));">
           <span class="glyph">Zenzero</span>
@@ -530,16 +526,16 @@
         <div class="project-body">
           <div class="project-top">
             <h3>Zenzero SRLS</h3>
-            <span class="project-period">01/2025 – 07/2026</span>
+            <span class="project-period" data-i18n="p3_period">01/2025 – 07/2026</span>
           </div>
-          <div class="project-role">Ecommerce Manager · Napoli</div>
+          <div class="project-role" data-i18n="p3_role">Ecommerce Manager · Napoli</div>
           <ul>
-            <li>E-commerce Shopify + TikTok Shop integrati</li>
-            <li>Amazon Seller Central: prodotti e ordini</li>
-            <li>Google Ads, TikTok, Instagram · Klarna / Scalapay</li>
+            <li data-i18n="p3_b1">E-commerce Shopify + TikTok Shop integrati</li>
+            <li data-i18n="p3_b2">Amazon Seller Central: prodotti e ordini</li>
+            <li data-i18n="p3_b3">Google Ads, TikTok, Instagram · Klarna / Scalapay</li>
           </ul>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            visita lo store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          <a class="project-link" href="https://zenzeroshop.com/" target="_blank" rel="noopener">
+            <span data-i18n="link_visit">visita lo store</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
           </a>
         </div>
       </div>
@@ -555,16 +551,17 @@
         <div class="project-body">
           <div class="project-top">
             <h3>Romanelli Store</h3>
-            <span class="project-period">07/2026 – in corso</span>
+            <span class="project-period" data-i18n="p4_period">07/2025 – in corso</span>
           </div>
-          <div class="project-role">Ecommerce & Marketing Specialist · Napoli</div>
+          <div class="project-role" data-i18n="p4_role">Ecommerce & Marketing Specialist · Napoli</div>
           <ul>
-            <li>Store WooCommerce / WordPress — calzature alta gamma</li>
-            <li>Posizionamento brand e marketing digitale</li>
-            <li>Ottimizzazione UX e conversioni</li>
+            <li data-i18n="p4_b1">Store WooCommerce / WordPress — calzature alta gamma</li>
+            <li data-i18n="p4_b2">Posizionamento brand e marketing digitale</li>
+            <li data-i18n="p4_b3">Ottimizzazione UX e conversioni</li>
+            <li data-i18n="p4_b4">Gestione vendite su TikTok Shop</li>
           </ul>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            visita lo store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          <a class="project-link" href="https://romanelli.store/" target="_blank" rel="noopener">
+            <span data-i18n="link_visit">visita lo store</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
           </a>
         </div>
       </div>
@@ -580,16 +577,63 @@
         <div class="project-body">
           <div class="project-top">
             <h3>ElasShape</h3>
-            <span class="project-period">04/2025 – 10/2025</span>
+            <span class="project-period" data-i18n="p5_period">04/2025 – 10/2025</span>
           </div>
-          <div class="project-role">Social Media Marketing & Ecommerce Manager · USA (remoto)</div>
+          <div class="project-role" data-i18n="p5_role">Social Media Marketing & Ecommerce Manager · USA (remoto)</div>
           <ul>
-            <li>Follower +30% in due mesi, engagement +35%</li>
-            <li>CAC -10%, conversioni +25%</li>
-            <li>Collaborazioni con influencer e ambassador</li>
+            <li data-i18n="p5_b1">Follower +30% in due mesi, engagement +35%</li>
+            <li data-i18n="p5_b2">CAC -10%, conversioni +25%</li>
+            <li data-i18n="p5_b3">Collaborazioni con influencer e ambassador</li>
           </ul>
-          <a class="project-link" href="#" target="_blank" rel="noopener">
-            visita lo store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          <a class="project-link" href="https://www.elasshape.com/" target="_blank" rel="noopener">
+            <span data-i18n="link_visit">visita lo store</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="browser-chrome">
+          <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+          <div class="url-bar">riverwiththerapy.com</div>
+        </div>
+        <div class="project-visual" style="background:linear-gradient(135deg, rgba(77,216,230,0.16), rgba(244,184,96,0.12));">
+          <span class="glyph">River With Therapy</span>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <h3>River With Therapy</h3>
+            <span class="project-period" data-i18n="p6_period">04/2025</span>
+          </div>
+          <div class="project-role" data-i18n="p6_role">Creazione sito web</div>
+          <ul>
+            <li data-i18n="p6_b1">Sito creato interamente da zero</li>
+          </ul>
+          <a class="project-link" href="https://riverwiththerapy.com" target="_blank" rel="noopener">
+            <span data-i18n="link_visit">visita lo store</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="browser-chrome">
+          <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+          <div class="url-bar">marruzzostudiolegale.it</div>
+        </div>
+        <div class="project-visual" style="background:linear-gradient(135deg, rgba(139,125,251,0.16), rgba(77,216,230,0.10));">
+          <span class="glyph">Marruzzo Studio Legale</span>
+        </div>
+        <div class="project-body">
+          <div class="project-top">
+            <h3>Marruzzo Studio Legale</h3>
+            <span class="project-period" data-i18n="p7_period">2026</span>
+          </div>
+          <div class="project-role" data-i18n="p7_role">WordPress · Creazione & Ottimizzazione</div>
+          <ul>
+            <li data-i18n="p7_b1">Creazione del sito WordPress da zero</li>
+            <li data-i18n="p7_b2">Ottimizzazione tecnica e delle performance</li>
+          </ul>
+          <a class="project-link" href="https://marruzzostudiolegale.it" target="_blank" rel="noopener">
+            <span data-i18n="link_visit">visita lo store</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
           </a>
         </div>
       </div>
@@ -602,38 +646,33 @@
   <div class="wrap">
     <div class="section-head">
       <div class="section-label">04 / experience</div>
-      <h2 class="section-title">Percorso professionale.</h2>
+      <h2 class="section-title" data-i18n="exp_title">Percorso professionale.</h2>
     </div>
     <div class="timeline">
       <div class="tl-item reveal">
-        <div class="tl-period">07/2026 – in corso</div>
-        <div class="tl-role">Ecommerce & Marketing Specialist</div>
-        <div class="tl-org">Romanelli Store — Napoli</div>
+        <div class="tl-period" data-i18n="p4_period">07/2026 – in corso</div>
+        <div class="tl-role" data-i18n="t1_role">Ecommerce & Marketing Specialist</div>
+        <div class="tl-org" data-i18n="t1_org">Romanelli Store — Napoli</div>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-period">04/2026 – in corso</div>
-        <div class="tl-role">Ecommerce & Marketing Specialist</div>
-        <div class="tl-org">22 Spazio Boutique — Napoli</div>
+        <div class="tl-period" data-i18n="p1_period">04/2026 – in corso</div>
+        <div class="tl-role" data-i18n="t2_role">Ecommerce & Marketing Specialist</div>
+        <div class="tl-org" data-i18n="t2_org">22 Spazio Boutique — Napoli</div>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-period">01/2025 – 07/2026</div>
-        <div class="tl-role">Ecommerce Manager</div>
-        <div class="tl-org">Zenzero SRLS — Napoli</div>
+        <div class="tl-period" data-i18n="p3_period">01/2025 – 07/2026</div>
+        <div class="tl-role" data-i18n="t3_role">Ecommerce Manager</div>
+        <div class="tl-org" data-i18n="t3_org">Zenzero SRLS — Napoli</div>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-period">04/2025 – 10/2025</div>
-        <div class="tl-role">Social Media Marketing & Ecommerce Manager</div>
-        <div class="tl-org">ElasShape — USA (smart working)</div>
+        <div class="tl-period" data-i18n="p5_period">04/2025 – 10/2025</div>
+        <div class="tl-role" data-i18n="t4_role">Social Media Marketing & Ecommerce Manager</div>
+        <div class="tl-org" data-i18n="t4_org">ElasShape — USA (smart working)</div>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-period">04/2023 – 04/2024</div>
-        <div class="tl-role">Back Office Agent & Social Media Marketing Specialist</div>
-        <div class="tl-org">Urban Moves — Svezia</div>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-period">01/2022 – 05/2024</div>
-        <div class="tl-role">Assistente Amministrativo / Back Office / Istruttore di Nuoto</div>
-        <div class="tl-org">Vattenhuset AB — Stoccolma</div>
+        <div class="tl-period" data-i18n="t6_period">01/2022 – 05/2024</div>
+        <div class="tl-role" data-i18n="t6_role">Assistente Amministrativo / Back Office / Istruttore di Nuoto</div>
+        <div class="tl-org" data-i18n="t6_org">Vattenhuset AB — Stoccolma</div>
       </div>
     </div>
   </div>
@@ -644,13 +683,13 @@
     <div>
       <div class="section-head">
         <div class="section-label">05 / contact</div>
-        <h2 class="section-title">Parliamo del tuo prossimo store.</h2>
+        <h2 class="section-title" data-i18n="contact_title">Parliamo del tuo prossimo store.</h2>
       </div>
-      <p class="lead">Disponibile per collaborazioni su e-commerce, gestione TikTok Shop, campagne ads ed email marketing.</p>
+      <p class="lead" data-i18n="contact_lead">Disponibile per collaborazioni su e-commerce, gestione TikTok Shop, campagne ads ed email marketing.</p>
       <div class="lang-strip">
-        <span class="lang-pill">🇬🇧 <b>Inglese</b> · C2</span>
-        <span class="lang-pill">🇸🇪 <b>Svedese</b> · Fluente</span>
-        <span class="lang-pill">🇮🇹 <b>Italiano</b> · Base</span>
+        <span class="lang-pill">🇬🇧 <b data-i18n="lang1_name">Inglese</b> · C2</span>
+        <span class="lang-pill">🇸🇪 <b data-i18n="lang2_name">Svedese</b> · <span data-i18n="lang2_level">Fluente</span></span>
+        <span class="lang-pill">🇮🇹 <b data-i18n="lang3_name">Italiano</b> · <span data-i18n="lang3_level">Base</span></span>
       </div>
     </div>
     <div class="contact-cards">
@@ -658,32 +697,32 @@
         <span class="icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
         </span>
-        <div><div class="lbl">Email</div><div class="val">tnarangoda30@gmail.com</div></div>
+        <div><div class="lbl" data-i18n="lbl_email">Email</div><div class="val">tnarangoda30@gmail.com</div></div>
       </a>
       <a class="ccard" href="tel:+393447085566">
         <span class="icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
         </span>
-        <div><div class="lbl">Telefono</div><div class="val">+39 344 7085566</div></div>
+        <div><div class="lbl" data-i18n="lbl_phone">Telefono</div><div class="val">+39 344 7085566</div></div>
       </a>
       <div class="ccard">
         <span class="icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </span>
-        <div><div class="lbl">Base</div><div class="val">Napoli, Italia</div></div>
+        <div><div class="lbl" data-i18n="lbl_based">Base</div><div class="val" data-i18n="val_based">Napoli, Italia</div></div>
       </div>
       <a class="ccard" href="https://github.com/" target="_blank" rel="noopener">
         <span class="icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.11.79-.25.79-.56 0-.27-.01-1-.02-1.97-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.05 11.05 0 015.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.68 5.38-5.24 5.67.42.36.78 1.07.78 2.17 0 1.56-.01 2.82-.01 3.2 0 .31.21.68.8.56A11.51 11.51 0 0023.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
         </span>
-        <div><div class="lbl">Codice / Repo</div><div class="val">github.com/tuo-username</div></div>
+        <div><div class="lbl" data-i18n="lbl_repo">Codice / Repo</div><div class="val">github.com/tuo-username</div></div>
       </a>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">© 2026 Thisen Smith <span class="dot">•</span> built &amp; deployed with GitHub Pages</div>
+  <div class="wrap" data-i18n="footer_text">© 2026 Thisen Smith · sito creato e pubblicato con GitHub Pages</div>
 </footer>
 
 <script>
@@ -694,6 +733,153 @@
     });
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ---------- i18n ----------
+  const translations = {
+    hero_eyebrow: { it: "status: disponibile per nuovi progetti", en: "status: open to new projects" },
+    hero_title: {
+      it: 'Storefront che <span class="grad">convertono</span>.<br>Campagne che <span class="grad">scalano</span>.',
+      en: 'Storefronts that <span class="grad">convert</span>.<br>Campaigns that <span class="grad">scale</span>.'
+    },
+    hero_lead: {
+      it: "Sono Thisen Smith, e-commerce & digital marketing specialist. Costruisco e ottimizzo store Shopify, WooCommerce e TikTok Shop, e guido campagne ads e email marketing dal lancio alla crescita.",
+      en: "I'm Thisen Smith, an e-commerce & digital marketing specialist. I build and optimize Shopify, WooCommerce and TikTok Shop stores, and run ad campaigns and email marketing from launch to growth."
+    },
+    btn_projects: { it: "Vedi i progetti →", en: "View projects →" },
+    btn_contact: { it: "Contattami", en: "Get in touch" },
+
+    about_title: { it: "Dal catalogo al checkout.", en: "From catalog to checkout." },
+    about_p1: {
+      it: "Mi occupo di e-commerce e digital marketing su più canali: gestione operativa e strategica di store TikTok Shop, Shopify, WooCommerce e WordPress, con un focus costante su conversioni, ROAS e crescita delle vendite.",
+      en: "I work across e-commerce and digital marketing on multiple channels: hands-on and strategic management of TikTok Shop, Shopify, WooCommerce and WordPress stores, with a constant focus on conversions, ROAS and sales growth."
+    },
+    about_p2: {
+      it: "Lavoro sull'intera filiera: catalogo prodotti, pricing, conformità, customer care, campagne advertising, collaborazioni con creator e affiliati, email marketing e ottimizzazione tecnica dei siti — così ogni store che tocco cresce sia in traffico che in conversione.",
+      en: "I work across the entire pipeline: product catalog, pricing, compliance, customer care, ad campaigns, creator and affiliate partnerships, email marketing and technical site optimization — so every store I touch grows in both traffic and conversion."
+    },
+    stat1_label: { it: "store / progetti<br>e-commerce seguiti", en: "stores / e-commerce<br>projects managed" },
+    stat2_label: { it: "piattaforme<br>Shopify · WooCommerce · WordPress · TikTok Shop", en: "platforms<br>Shopify · WooCommerce · WordPress · TikTok Shop" },
+    stat3_label: { it: "lingue<br>Inglese · Svedese · Italiano", en: "languages<br>English · Swedish · Italian" },
+    stat4_label: { it: "canali ads gestiti<br>Google · Meta · TikTok", en: "ad channels managed<br>Google · Meta · TikTok" },
+
+    stack_title: { it: "Strumenti che uso ogni giorno.", en: "Tools I use every day." },
+    card1_tag: { it: "PIATTAFORME E-COMMERCE", en: "E-COMMERCE PLATFORMS" },
+    card1_title: { it: "Store & Marketplace", en: "Stores & Marketplaces" },
+    card2_tag: { it: "CMS", en: "CMS" },
+    card2_title: { it: "Siti & Contenuti", en: "Sites & Content" },
+    card3_tag: { it: "ADVERTISING", en: "ADVERTISING" },
+    card3_title: { it: "Campagne & Ads", en: "Campaigns & Ads" },
+    card4_tag: { it: "ANALYTICS", en: "ANALYTICS" },
+    card4_title: { it: "Dati & Performance", en: "Data & Performance" },
+    card5_tag: { it: "EMAIL MARKETING", en: "EMAIL MARKETING" },
+    card5_title: { it: "CRM & Automazioni", en: "CRM & Automations" },
+    card6_tag: { it: "DESIGN & PAGAMENTI", en: "DESIGN & PAYMENTS" },
+    card6_title: { it: "Creatività & Checkout", en: "Creative & Checkout" },
+
+    work_title: { it: "Store e siti su cui ho lavorato.", en: "Stores and sites I've worked on." },
+    link_visit: { it: "visita lo store", en: "visit the store" },
+
+    p1_period: { it: "05/2026 – in corso", en: "05/2026 – present" },
+    p1_role: { it: "Ecommerce & Marketing Specialist · Napoli", en: "Ecommerce & Marketing Specialist · Naples" },
+    p1_b1: { it: "Gestione e crescita dello store Shopify del brand", en: "Managing and growing the brand's Shopify store" },
+    p1_b2: { it: "Campagne Google Ads per traffico qualificato", en: "Google Ads campaigns for qualified traffic" },
+    p1_b3: { it: "Email marketing: newsletter, automazioni, recupero carrelli", en: "Email marketing: newsletters, automations, cart recovery" },
+    p1_b4: { it: "Gestione vendite su TikTok Shop", en: "TikTok Shop sales management" },
+
+    p3_period: { it: "01/2025 – 07/2026", en: "01/2025 – 07/2026" },
+    p3_role: { it: "Ecommerce Manager · Napoli", en: "Ecommerce Manager · Naples" },
+    p3_b1: { it: "E-commerce Shopify + TikTok Shop integrati", en: "Shopify + TikTok Shop integrated e-commerce" },
+    p3_b2: { it: "Amazon Seller Central: prodotti e ordini", en: "Amazon Seller Central: products and orders" },
+    p3_b3: { it: "Google Ads, TikTok, Instagram · Klarna / Scalapay", en: "Google Ads, TikTok, Instagram · Klarna / Scalapay" },
+
+    p4_period: { it: "07/2025 – in corso", en: "07/2025 – present" },
+    p4_role: { it: "Ecommerce & Marketing Specialist · Napoli", en: "Ecommerce & Marketing Specialist · Naples" },
+    p4_b1: { it: "Store WooCommerce / WordPress — calzature alta gamma", en: "WooCommerce / WordPress store — high-end footwear" },
+    p4_b2: { it: "Posizionamento brand e marketing digitale", en: "Brand positioning and digital marketing" },
+    p4_b3: { it: "Ottimizzazione UX e conversioni", en: "UX and conversion optimization" },
+    p4_b4: { it: "Gestione vendite su TikTok Shop", en: "TikTok Shop sales management" },
+
+    p5_period: { it: "04/2025 – 10/2025", en: "04/2025 – 10/2025" },
+    p5_role: { it: "Social Media Marketing & Ecommerce Manager · USA (remoto)", en: "Social Media Marketing & Ecommerce Manager · USA (remote)" },
+    p5_b1: { it: "Follower +30% in due mesi, engagement +35%", en: "Followers +30% in two months, engagement +35%" },
+    p5_b2: { it: "CAC -10%, conversioni +25%", en: "CAC -10%, conversions +25%" },
+    p5_b3: { it: "Collaborazioni con influencer e ambassador", en: "Collaborations with influencers and ambassadors" },
+
+    p6_period: { it: "04/2025", en: "04/2025" },
+    p6_role: { it: "Creazione sito web", en: "Website creation" },
+    p6_b1: { it: "Sito creato interamente da zero", en: "Site built entirely from scratch" },
+
+    p7_period: { it: "2026", en: "2026" },
+    p7_role: { it: "WordPress · Creazione & Ottimizzazione", en: "WordPress · Creation & Optimization" },
+    p7_b1: { it: "Creazione del sito WordPress da zero", en: "WordPress site built from scratch" },
+    p7_b2: { it: "Ottimizzazione tecnica e delle performance", en: "Technical and performance optimization" },
+
+    exp_title: { it: "Percorso professionale.", en: "Professional path." },
+    t1_role: { it: "Ecommerce & Marketing Specialist", en: "Ecommerce & Marketing Specialist" },
+    t1_org: { it: "Romanelli Store — Napoli", en: "Romanelli Store — Naples" },
+    t2_role: { it: "Ecommerce & Marketing Specialist", en: "Ecommerce & Marketing Specialist" },
+    t2_org: { it: "22 Spazio Boutique — Napoli", en: "22 Spazio Boutique — Naples" },
+    t3_role: { it: "Ecommerce Manager", en: "Ecommerce Manager" },
+    t3_org: { it: "Zenzero SRLS — Napoli", en: "Zenzero SRLS — Naples" },
+    t4_role: { it: "Social Media Marketing & Ecommerce Manager", en: "Social Media Marketing & Ecommerce Manager" },
+    t4_org: { it: "ElasShape — USA (smart working)", en: "ElasShape — USA (remote)" },
+    t6_period: { it: "01/2022 – 05/2024", en: "01/2022 – 05/2024" },
+    t6_role: { it: "Assistente Amministrativo / Back Office / Istruttore di Nuoto", en: "Administrative Assistant / Back Office / Swimming Instructor" },
+    t6_org: { it: "Vattenhuset AB — Stoccolma", en: "Vattenhuset AB — Stockholm" },
+
+    contact_title: { it: "Parliamo del tuo prossimo store.", en: "Let's talk about your next store." },
+    contact_lead: {
+      it: "Disponibile per collaborazioni su e-commerce, gestione TikTok Shop, campagne ads ed email marketing.",
+      en: "Available for collaborations on e-commerce, TikTok Shop management, ad campaigns and email marketing."
+    },
+    lang1_name: { it: "Inglese", en: "English" },
+    lang2_name: { it: "Svedese", en: "Swedish" },
+    lang2_level: { it: "Fluente", en: "Fluent" },
+    lang3_name: { it: "Italiano", en: "Italian" },
+    lang3_level: { it: "Base", en: "Basic" },
+
+    lbl_email: { it: "Email", en: "Email" },
+    lbl_phone: { it: "Telefono", en: "Phone" },
+    lbl_based: { it: "Base", en: "Based in" },
+    val_based: { it: "Napoli, Italia", en: "Naples, Italy" },
+    lbl_repo: { it: "Codice / Repo", en: "Code / Repo" },
+
+    footer_text: {
+      it: "© 2026 Thisen Smith · sito creato e pubblicato con GitHub Pages",
+      en: "© 2026 Thisen Smith · built & deployed with GitHub Pages"
+    }
+  };
+
+  function applyLang(lang){
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[key] && translations[key][lang] !== undefined) {
+        el.textContent = translations[key][lang];
+      }
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (translations[key] && translations[key][lang] !== undefined) {
+        el.innerHTML = translations[key][lang];
+      }
+    });
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    try { localStorage.setItem('site-lang', lang); } catch(e) {}
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
+
+  let initialLang = 'it';
+  try {
+    const saved = localStorage.getItem('site-lang');
+    if (saved === 'it' || saved === 'en') initialLang = saved;
+  } catch(e) {}
+  applyLang(initialLang);
 </script>
 
 </body>
